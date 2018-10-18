@@ -31,7 +31,10 @@ $.getJSON("/articles", function(data) {
         $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
         // A button to submit a new note, with the id of the article saved to it
         $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
-  
+        // Delete button
+        //$("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>")
+        $("#notes").append("<button class='delete' data-id='" + data._id + "' id='savenote'>Delete Note</button>")
+        
         // If there's a note in the article
         if (data.note) {
           // Place the title of the note in the title input
@@ -70,6 +73,7 @@ $.getJSON("/articles", function(data) {
     $("#titleinput").val("");
     $("#bodyinput").val("");
   });
+  
   $(document).on("click", "#scrape", function() {
     // AJAX POST call to the submit route on the server
     // This will take the data from the form and send it to the server
@@ -82,16 +86,30 @@ $.getJSON("/articles", function(data) {
         window.location.reload();
       });
   });
-  $("#delete").on("click", function() {
-    // Make an AJAX GET request to delete the notes from the db
+//   $("#delete").on("click", function() {
+//     // Make an AJAX GET request to delete the notes from the db
+//     $.ajax({
+//       type: "GET",
+//       dataType: "json",
+//       url: "/clearall",
+//       // On a successful call, clear the #results section
+//       success: function(response) {
+//         $("#results").empty();
+//       }
+//     });
+//  });
+  // When user clicks the delete button for a note
+$(document).on("click", ".delete", function() {
+    console.log($(this).attr("data-id"))
+    // Save the p tag that encloses the button
+    var selected = $(this).attr("data-id");
+    // Make an AJAX GET request to delete the specific note
+    // this uses the data-id of the p-tag, which is linked to the specific note
     $.ajax({
-      type: "GET",
-      dataType: "json",
-      url: "/clearall",
-      // On a successful call, clear the #results section
-      success: function(response) {
-        $("#results").empty();
-      }
-    });
+      type: "DELETE",
+      url: "/delete/" + selected      
+    }).then(function(data) {
+        // Add the title and delete button to the #results section
+          window.location.reload();
+        });
   });
-  

@@ -59,7 +59,8 @@ app.get("/scrape", function(req, res) {
           })
           .catch(function(err) {
             // If an error occurred, send it to the client
-            return res.json(err);
+            console.log("************************************************************************")
+            //res.json(err);
           });
       });
   
@@ -78,7 +79,8 @@ app.get("/scrape", function(req, res) {
       })
       .catch(function(err) {
         // If an error occurred, send it to the client
-        res.json(err);
+        console.log("##########################################################################")
+        //res.json(err);
       });
   });
   
@@ -94,7 +96,8 @@ app.get("/scrape", function(req, res) {
       })
       .catch(function(err) {
         // If an error occurred, send it to the client
-        res.json(err);
+        console.log("-------------------------------------------------------------")
+        //res.json(err);
       });
   });
   
@@ -116,6 +119,29 @@ app.get("/scrape", function(req, res) {
         // If an error occurred, send it to the client
         res.json(err);
       });
+  });
+  // Delete One from the DB
+app.delete("/delete/:id", function(req, res) {
+    console.log(req.params.id)
+    // Remove a note using the objectID
+    db.Article.remove(
+      {
+        _id: (req.params.id)
+      },
+      function(error, removed) {
+        // Log any errors from mongojs
+        if (error) {
+          console.log(error);
+          res.send(error);
+        }
+        else {
+          // Otherwise, send the mongojs response to the browser
+          // This will fire off the success function of the ajax request
+          console.log(removed);
+          res.send(removed);
+        }
+      }
+    );
   });
 
 // Start the server
