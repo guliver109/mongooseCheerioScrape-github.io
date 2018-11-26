@@ -1,0 +1,72 @@
+/* Screens Resolution :
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 1300px) {
+	
+    
+}
+/* Screens Resolution : 992px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 1200px) {
+   
+}
+/* Screens Resolution : 992px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 992px) {
+
+    #wrapper {
+        width: 100%;
+    }
+
+}
+/* Screens Resolution : 767px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 767px) {
+    
+    #wrapper {
+        width: 100%;
+    }
+	
+}	
+/* Screens Resolution : 575px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 575px) {
+    
+    #wrapper {
+        width: 100%;
+    }
+}
+/* Screens Resolution : 479px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 479px) {
+    /* ovaj */
+    #wrapper {
+        width: 90%;
+    }
+    
+}
+/* Screens Resolution : 359px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 359px) {
+    
+    #wrapper {
+        width: 100%;
+    }
+	
+}
+
+/* Screens Resolution : 290px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 290px) {
+
+    #wrapper {
+        width: 100%;
+    }
+}	
+
+/* Screens Resolution : 290px
+-------------------------------------------------------------------------- */
+@media only screen and (max-width: 260px) {
+	#wrapper {
+        width: 100%;
+    }
+}
